@@ -1,16 +1,22 @@
-from turtle import Turtle
+import turtle as t
 import random
 
-tim = Turtle()
+tim = t.Turtle()
+t.colormode(255)
 is_on = True
 tim.pensize(10)
-tim.speed("fast")
+tim.speed("fastest")
 directions = [0, 90, 180, 270]
-colors = ["red", "orange", "lime", "deep pink", "royal blue", "orange red", "sea green", "black", "dark slate gray", "teal", "green", "firebrick", "indigo", "hot pink"]
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return (r, g, b)
 
 def random_walk():
     while is_on:
-        tim.pencolor(random.choice(colors))
+        tim.pencolor(random_color())
         tim.forward(50)
         tim.setheading(random.choice(directions))
         
